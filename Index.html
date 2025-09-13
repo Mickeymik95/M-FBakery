@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M&F_Bakery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#produk">Produk</a>
+  <a href="#proses">Proses</a>
+  <a href="#testimoni">Testimoni</a>
+  <a href="#maklum-balas">Maklum Balas</a>
+  <a href="#hubungi">Hubungi</a>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <img src="IMG20250812163803.jpg" alt="Logo M&F_Bakery" loading="lazy">
+  <h1>M&F_Bakery</h1>
+</header>
+
+<!-- PRODUK -->
+<section id="produk">
+  <h2>Senarai Produk</h2>
+  <div class="products">
+    <div class="card" data-aos="fade-up">
+      <img src="Kuih1.jpg" alt="Kuih 1" loading="lazy">
+      <p>Kuih Lapis</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <img src="kuih2.jpg" alt="Kuih 2" loading="lazy">
+      <p>Kuih Seri Muka</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <img src="kuih3.jpg" alt="Kuih 3" loading="lazy">
+      <p>Kuih Cara Manis</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROSES PEMBUATAN -->
+<section id="proses">
+  <h2>Proses Pembuatan</h2>
+  <video controls>
+    <source src="proses.mp4" type="video/mp4">
+    Browser anda tidak menyokong video.
+  </video>
+  <div class="proses-gambar">
+    <div class="card" data-aos="zoom-in">
+      <img src="proses1.jpg" alt="Proses 1" loading="lazy">
+    </div>
+    <div class="card" data-aos="zoom-in" data-aos-delay="100">
+      <img src="proses2.jpg" alt="Proses 2" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni">
+  <h2>Testimoni Pelanggan</h2>
+  <div class="testimoni">
+    <div class="card" data-aos="fade-left">
+      <img src="pelanggan1.jpg" alt="Pelanggan 1" loading="lazy">
+      <p>"Kuihnya sangat sedap!" - Aisyah</p>
+    </div>
+    <div class="card" data-aos="fade-left" data-aos-delay="100">
+      <img src="pelanggan2.jpg" alt="Pelanggan 2" loading="lazy">
+      <p>"Servis cepat dan mesra." - Amir</p>
+    </div>
+  </div>
+</section>
+
+<!-- MAKLUMBALAS -->
+<section id="maklum-balas">
+  <h2>Maklum Balas Pelanggan</h2>
+  <div class="feedback card" data-aos="fade-up">
+    <textarea placeholder="Tulis maklum balas anda..." required></textarea>
+    <button onclick="alert('Terima kasih atas maklum balas anda!')">Hantar</button>
+  </div>
+</section>
+
+<!-- MUAT TURUN BORANG -->
+<section id="borang">
+  <h2>Muat Turun Borang</h2>
+  <div class="card" data-aos="fade-up">
+    <a href="borang_pendaftaran.pdf" download>
+      <button>Muat Turun Borang Pendaftaran</button>
+    </a>
+  </div>
+</section>
+
+<!-- HUBUNGI KAMI -->
+<section id="hubungi">
+  <h2>Hubungi Kami</h2>
+  <p>Email: info@mf-bakery.com</p>
+  <p>WhatsApp: <a href="https://wa.me/60123456789" target="_blank">+6012-3456789</a></p>
+</section>
+
+<footer>
+  &copy; 2025 M&F_Bakery. Semua hak cipta terpelihara.
+</footer>
+
+<!-- AOS Animation Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+</body>
+</html>
