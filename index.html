@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M&F_Bakery</title>
-
-<!-- AOS -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
 :root {
   --putih: #ffffff;
-  --biru-navy: #0000FF;
+  --biru-muda: #99ccff;
+  --biru-navy: #003366;
+  --hitam: #000000;
   --oren: #ff7f50;
 }
 
@@ -20,28 +20,27 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin:0; padding:0;
-  background: linear-gradient(to bottom, #99ccff, #003366); /* gradient lebih tegas */
-  color:#fff; overflow-x:hidden;
+  background: linear-gradient(to bottom, var(--putih), var(--biru-muda));
+  color:#003366; overflow-x:hidden;
 }
 
 /* NAVBAR */
 nav {
   display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
   position:sticky; top:0; z-index:100;
-  background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);
-  padding:12px; gap:15px;
-  border-bottom:1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.9); 
+  padding:12px; gap:15px; box-shadow:0 2px 10px rgba(0,0,0,0.2);
 }
 nav a {
-  color:var(--putih); text-decoration:none; font-weight:bold;
+  color:var(--biru-navy); text-decoration:none; font-weight:bold;
   padding:8px 12px; border-radius:8px; transition: all 0.3s ease;
 }
-nav a:hover { background: rgba(255,255,255,0.3); color: var(--biru-navy); transform:scale(1.1);}
+nav a:hover { background: var(--biru-muda); color: var(--putih); transform:scale(1.1);}
 #ikonBakul { cursor:pointer; font-size:1.2em; margin-left:auto; }
 
 /* HEADER */
-header { text-align:center; padding:40px 20px; color:#fff; }
-header img { width:20%; max-width:140px; border-radius:50%; border:4px solid #fff; box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+header { text-align:center; padding:40px 20px; color:var(--biru-navy); }
+header img { width:20%; max-width:140px; border-radius:50%; border:4px solid var(--biru-navy); box-shadow:0 4px 12px rgba(0,0,0,0.3);}
 header h1 { font-size:2.5em; margin-top:10px; }
 
 /* SECTION */
@@ -50,31 +49,32 @@ section {
   margin:30px auto;
   max-width:1000px;
   border-radius:15px;
-  background: rgba(0,0,0,0.2); /* background tegas */
-  color:#fff;
-  box-shadow:0 6px 20px rgba(0,0,0,0.3);
+  background: var(--putih);
+  color:var(--biru-navy);
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  border:2px solid var(--hitam); /* frame hitam untuk setiap section */
 }
-h2 { text-align:center; font-size:2em; margin-bottom:30px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+h2 { text-align:center; font-size:2em; margin-bottom:30px; }
 
 /* CARDS PRODUK */
 .products, .testimoni, .proses-gambar {
   display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
 }
 .card {
-  background: #003366; /* biru gelap */
+  background: var(--biru-muda); /* biru muda */
   padding:15px;
   border-radius:15px;
   text-align:center;
   position:relative;
-  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
   width:220px;
   transition: transform 0.3s;
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.5);}
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.3);}
 .card img { width:100%; border-radius:15px; margin-bottom:10px; }
-.card p, .card button { color:#fff; }
-.card button { background: #0059b3; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; transition:0.3s;}
-.card button:hover { background:#ff7f50; }
+.card p { color: var(--biru-navy); font-weight:bold; }
+.card button { background: var(--biru-navy); color:var(--putih); border:none; padding:8px 12px; border-radius:5px; cursor:pointer; transition:0.3s;}
+.card button:hover { background: var(--oren); }
 
 /* VIDEO */
 video { width:100%; height:auto; border-radius:15px; }
@@ -92,11 +92,10 @@ video { width:100%; height:auto; border-radius:15px; }
 /* FORM */
 textarea, button { width:100%; padding:10px; margin:5px 0; border-radius:8px; border:1px solid #ccc; font-size:1em; }
 textarea { resize: vertical; min-height:80px; }
-button { cursor:pointer; transition: background 0.3s; }
 button:hover { background:#001f4d; color:#fff; }
 
 /* FOOTER */
-footer { text-align:center; padding:20px; background: rgba(0,0,0,0.3); color:#fff; margin-top:30px; border-radius:15px; }
+footer { text-align:center; padding:20px; background: var(--biru-navy); color:#fff; margin-top:30px; border-radius:15px; }
 
 /* MEDIA QUERY */
 @media (max-width:768px) {
@@ -133,17 +132,17 @@ footer { text-align:center; padding:20px; background: rgba(0,0,0,0.3); color:#ff
   <h2>Senarai Produk</h2>
   <div class="products">
     <div class="card">
-      <img src="kuih1.jpeg" alt="Kuih 1">
+      <img src="kuih1.jpeg" alt="Kuih Lapis">
       <p>Kuih Lapis - RM2.50</p>
       <button onclick="tambahBakul('Kuih Lapis',2.5)">Tambah ke Bakul</button>
     </div>
     <div class="card">
-      <img src="kuih2.jpg" alt="Kuih 2">
+      <img src="kuih2.jpg" alt="Kuih Seri Muka">
       <p>Kuih Seri Muka - RM3.00</p>
       <button onclick="tambahBakul('Kuih Seri Muka',3)">Tambah ke Bakul</button>
     </div>
     <div class="card">
-      <img src="kuih3.jpeg" alt="Kuih 3">
+      <img src="kuih3.jpeg" alt="Kuih Kek Karamel">
       <p>Kuih Kek Karamel - RM4.50</p>
       <button onclick="tambahBakul('Kuih Kek Karamel',4.5)">Tambah ke Bakul</button>
     </div>
@@ -181,28 +180,18 @@ footer { text-align:center; padding:20px; background: rgba(0,0,0,0.3); color:#ff
   </div>
 </section>
 
-<!-- MUAT TURUN BORANG -->
-<section id="borang">
-  <h2>Muat Turun Borang</h2>
-  <div class="card">
-    <a href="borang_pendaftaran.pdf" download>
-      <button>Muat Turun Borang Pendaftaran</button>
-    </a>
-  </div>
-</section>
-
-<!-- HUBUNGI KAMI -->
+<!-- HUBUNGI -->
 <section id="hubungi">
   <h2>Hubungi Kami & Pesan</h2>
   <p>Email: <a href="mailto:mickeymikapple@gmail.com">mickeymikapple@gmail.com</a></p>
   <p>WhatsApp: <a href="https://wa.me/60149236577" target="_blank">Mik</a></p>
-  <p>WhatsApp: <a href="https://wa.me/60166234337" target="_blank">Fazrinah<p>WhatsApp: <a href="https://wa.me/60166234337" target="_blank">Fazrinah</a></p>
+  <p>WhatsApp: <a href="https://wa.me/60166234337" target="_blank">Fazrinah</a></p>
 </section>
 
 <!-- POPUP BAKUL -->
 <div id="popupBakul">
   <h3>Bakul Anda</h3>
-  <ul id="senaraiBakul"></ul>
+  <ul id="senaraiBakul</ul>
   <p id="jumlah">Jumlah: RM0.00</p>
   <button onclick="checkoutBakul()">Checkout (WhatsApp)</button>
   <button onclick="tutupBakul()">Tutup</button>
