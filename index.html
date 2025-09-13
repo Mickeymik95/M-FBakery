@@ -1,63 +1,56 @@
+
 <!DOCTYPE html>
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M&F_Bakery Premium - Template</title>
+<title>M&F_Bakery Responsive</title>
 
-<!-- AOS Animation -->
+<!-- AOS -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <style>
 :root {
-  /* --- WARNA UTAMA --- */
   --biru-muda: #cce6ff;
   --biru-navy: #003366;
   --putih: #ffffff;
   --oren: #ff7f50;
 }
 
-/* --- BODY & BACKGROUND GRADIENT --- */
-html { scroll-behavior:smooth; }
+/* BODY & GRADIENT */
+html { scroll-behavior: smooth; }
 body {
-  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin:0; padding:0;
   background: linear-gradient(to bottom, var(--biru-muda), var(--biru-navy));
-  overflow-x:hidden;
-  color:#fff;
+  color:#fff; overflow-x:hidden;
 }
 
-/* --- BUBBLES BACKGROUND ANIMASI --- */
+/* BUBBLES ANIMASI */
 .bubble { position:absolute; border-radius:50%; background:rgba(255,255,255,0.15); animation:bubbleMove 20s linear infinite; }
 @keyframes bubbleMove { 0%{ transform:translateY(100vh) scale(0.5); } 100%{ transform:translateY(-10vh) scale(1);} }
 
-/* --- NAVBAR GLASSMORPHISM --- */
+/* NAVBAR GLASS */
 nav {
-  text-align:center;
-  padding:12px 0;
+  display:flex; justify-content:center; flex-wrap:wrap;
   position:sticky; top:0; z-index:100;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);
+  padding:12px; gap:15px;
   border-bottom:1px solid rgba(255,255,255,0.3);
-  display:flex; justify-content:center; gap:15px;
 }
 nav a {
-  color:var(--putih);
-  text-decoration:none;
-  font-weight:bold;
-  padding:8px 12px;
-  border-radius:8px;
-  transition: all 0.3s ease;
+  color:var(--putih); text-decoration:none; font-weight:bold;
+  padding:8px 12px; border-radius:8px; transition: all 0.3s ease;
 }
 nav a:hover { background: rgba(255,255,255,0.3); color: var(--biru-navy); transform:scale(1.1);}
-#ikonBakul { position:absolute; right:20px; font-size:1.2em; cursor:pointer; }
+#ikonBakul { cursor:pointer; font-size:1.2em; }
 
-/* --- HEADER --- */
+/* HEADER */
 header { text-align:center; padding:40px 20px; color:#fff; }
 header img { width:20%; max-width:140px; border-radius:50%; border:4px solid #fff; box-shadow:0 4px 12px rgba(0,0,0,0.3);}
 header h1 { font-size:2.5em; margin-top:10px; }
 
-/* --- SECTION --- */
+/* SECTION */
 section {
   padding:50px 20px;
   margin:30px auto;
@@ -68,70 +61,42 @@ section {
   color:#fff;
   box-shadow:0 6px 20px rgba(0,0,0,0.2);
 }
+h2 { text-align:center; font-size:2em; margin-bottom:30px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
 
-/* --- HEADER SECTION --- */
-h2 { text-align:center; font-size:2em; margin-bottom:30px; color:#fff; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
-
-/* --- SLIDER PRODUK & TESTIMONI --- */
+/* SLIDER PRODUK */
 .slider {
-  display:flex;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  gap:20px;
-  padding-bottom:10px;
+  display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:20px; padding-bottom:10px;
 }
 .slider::-webkit-scrollbar { display:none; }
 .slider .card { flex:0 0 auto; scroll-snap-align:center; transition: transform 0.3s; }
-.slider .card:hover { transform:scale(1.1); }
+.slider .card:hover { transform:scale(1.05); }
 
-/* --- CARD --- */
+/* CARD */
 .card {
-  background: rgba(255,255,255,0.85);
-  padding:15px;
-  border-radius:15px;
-  text-align:center;
-  position:relative;
-  box-shadow:0 8px 20px rgba(0,0,0,0.3);
-  color:#000;
+  background: rgba(255,255,255,0.85); padding:15px; border-radius:15px;
+  text-align:center; position:relative; box-shadow:0 8px 20px rgba(0,0,0,0.3); color:#000;
 }
 .card img { width:100%; border-radius:15px; margin-bottom:10px; }
 
-/* --- BUTANG TAMBAH KE BAKUL --- */
+/* BUTTON TAMBAH KE BAKUL */
 .add-to-cart {
   position:absolute; top:10px; right:10px;
-  background:var(--oren); color:#fff;
-  border:none; border-radius:50%;
-  width:30px; height:30px;
-  cursor:pointer;
+  background:var(--oren); color:#fff; border:none; border-radius:50%;
+  width:30px; height:30px; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   transition: all 0.3s;
   animation:pulse 2s infinite;
 }
 @keyframes pulse { 0%{ transform: scale(1);}50%{transform:scale(1.1);}100%{transform:scale(1);} }
 
-/* --- FOOTER --- */
-footer {
-  text-align:center;
-  padding:20px;
-  background: rgba(0,0,0,0.3);
-  color:#fff;
-  margin-top:30px;
-  border-radius:15px;
-}
+/* VIDEO */
+video { width:100%; height:auto; border-radius:15px; }
 
-/* --- POPUP BAKUL --- */
+/* POPUP BAKUL */
 #popupBakul {
-  display:none;
-  position:fixed;
-  top:50%; left:50%;
-  transform:translate(-50%,-50%) scale(0);
-  background:#fff; color:#000;
-  border-radius:10px;
-  padding:20px;
-  width:90%; max-width:400px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
-  z-index:999;
-  transition: transform 0.3s;
+  display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0);
+  background:#fff; color:#000; border-radius:10px; padding:20px; width:90%; max-width:400px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:999; transition: transform 0.3s;
 }
 #popupBakul.show { transform:translate(-50%,-50%) scale(1);}
 #senaraiBakul { list-style:none; padding:0; max-height:250px; overflow-y:auto; margin-bottom:10px;}
@@ -141,20 +106,33 @@ footer {
 .bakul-controls button:hover { transform: scale(1.2);}
 #popupBakul button:last-child { margin-top:5px; background: var(--biru-navy); color:#fff; }
 
-/* --- FORM --- */
+/* FORM */
 textarea, button { width:100%; padding:10px; margin:5px 0; border-radius:8px; border:1px solid #ccc; font-size:1em; }
 textarea { resize: vertical; min-height:80px; }
 button { cursor:pointer; transition: background 0.3s; }
 button:hover { background:#001f4d; color:#fff; }
 
+/* FOOTER */
+footer { text-align:center; padding:20px; background: rgba(0,0,0,0.3); color:#fff; margin-top:30px; border-radius:15px; }
+
+/* --- MEDIA QUERY RESPONSIVE --- */
+@media (max-width: 768px) {
+  nav { flex-wrap:wrap; justify-content:center; }
+  nav a { margin:5px; font-size:0.9em; }
+  #ikonBakul { position:static; margin-top:10px; }
+  header img { width:40%; }
+  header h1 { font-size:1.8em; }
+  .slider, .products, .testimoni, .proses-gambar { flex-direction:column; align-items:center; }
+  .card { width:90%; max-width:300px; }
+}
 </style>
 </head>
 <body>
 
-<!-- --- BUBBLES ANIMASI --- -->
+<!-- BUBBLES -->
 <div id="bubbles"></div>
 
-<!-- --- NAVBAR --- -->
+<!-- NAVBAR -->
 <nav>
   <a href="#produk">Produk</a>
   <a href="#proses">Proses</a>
@@ -164,17 +142,16 @@ button:hover { background:#001f4d; color:#fff; }
   <a id="ikonBakul" onclick="tunjukBakul()">🛒 <span id="jumlahBakul">0</span></a>
 </nav>
 
-<!-- --- HEADER --- -->
+<!-- HEADER -->
 <header data-aos="fade-down">
   <img src="IMG20250812163803.jpg" alt="Logo M&F_Bakery" loading="lazy">
-  <h1>M&F_Bakery Premium</h1>
+  <h1>M&F_Bakery</h1>
 </header>
 
-<!-- --- PRODUK SLIDER --- -->
+<!-- PRODUK -->
 <section id="produk" data-aos="fade-up">
   <h2>Senarai Produk</h2>
   <div class="slider">
-    <!-- Card Produk Boleh Duplicate / Tambah -->
     <div class="card">
       <img src="kuih1.jpeg" alt="Kuih 1">
       <p>Kuih Lapis - RM2.50</p>
@@ -186,115 +163,4 @@ button:hover { background:#001f4d; color:#fff; }
       <button class="add-to-cart" onclick="tambahBakul('Kuih Seri Muka',3,'kuih2.jpg')">+</button>
     </div>
     <div class="card">
-      <img src="kuih3.jpeg" alt="Kuih 3">
-      <p>Kuih Kek Karamel - RM4.50</p>
-      <button class="add-to-cart" onclick="tambahBakul('Kuih Kek Karamel',4.5,'kuih3.jpeg')">+</button>
-    </div>
-  </div>
-</section>
-
-<!-- --- PROSES PEMBUATAN --- -->
-<section id="proses" data-aos="fade-up">
-  <h2>Proses Pembuatan</h2>
-  <video controls>
-    <source src="lv_0_20250913164116.mp4" type="video/mp4">
-    Browser anda tidak menyokong video.
-  </video>
-</section>
-
-<!-- --- TESTIMONI --- -->
-<section id="testimoni" data-aos="fade-up">
-  <h2>Testimoni Pelanggan</h2>
-  <div class="slider">
-    <div class="card">
-      <img src="pelanggan1.jpg" alt="Pelanggan 1">
-      <p>"Kuihnya sangat sedap!" - Aisyah</p>
-    </div>
-    <div class="card">
-      <img src="pelanggan2.jpg" alt="Pelanggan 2">
-      <p>"Servis cepat dan mesra." - Amir</p>
-    </div>
-  </div>
-</section>
-
-<!-- --- POPUP BAKUL --- -->
-<div id="popupBakul">
-  <h3>Bakul Anda</h3>
-  <ul id="senaraiBakul"></ul>
-  <p id="jumlah">Jumlah: RM0.00</p>
-  <button onclick="hantarWhatsApp()">Hantar WhatsApp</button>
-  <button onclick="tutupBakul()">Tutup</button>
-</div>
-
-<!-- --- FOOTER --- -->
-<footer>&copy; 2025 M&F_Bakery. Semua hak cipta terpelihara.</footer>
-
-<!-- --- SCRIPT --- -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-AOS.init({ duration:800, once:true });
-
-// --- BUBBLES ---
-for(let i=0;i<30;i++){
-  let div=document.createElement('div');
-  div.className='bubble';
-  div.style.width=div.style.height=(Math.random()*60+20)+'px';
-  div.style.left=Math.random()*100+'vw';
-  div.style.animationDuration=(10+Math.random()*20)+'s';
-  div.style.animationDelay=(Math.random()*10)+'s';
-  document.getElementById('bubbles').appendChild(div);
-}
-
-// --- BAKUL ---
-let bakul=[];
-function tambahBakul(nama,harga,img){
-  bakul.push({nama,harga,img,kuantiti:1});
-  document.getElementById('jumlahBakul').innerText=bakul.length;
-}
-function tunjukBakul(){
-  if(bakul.length===0){ alert("Tiada produk dalam bakul!"); return;}
-  const senarai=document.getElementById('senaraiBakul'); senarai.innerHTML='';
-  let kira={};
-  bakul.forEach(item=>{ if(!kira[item.nama]) kira[item.nama]=Object.assign({},item); else kira[item.nama].kuantiti++; });
-  for(let nama in kira){
-    const item=kira[nama];
-    const li=document.createElement('li');
-    li.className='bakul-item';
-    li.innerHTML=`<img src="${item.img}" alt="${item.nama}"><span>${item.nama} - RM${item.harga.toFixed(2)}</span>
-    <div class="bakul-controls">
-      <button onclick="ubahKuantiti('${item.nama}',-1)">-</button>
-      <span>${item.kuantiti}</span>
-      <button onclick="ubahKuantiti('${item.nama}',1)">+</button>
-    </div>`;
-    senarai.appendChild(li);
-  }
-  let total=Object.values(kira).reduce((a,b)=>a+b.harga*b.kuantiti,0);
-  document.getElementById('jumlah').innerText='Jumlah: RM'+total.toFixed(2);
-  document.getElementById('popupBakul').classList.add('show');
-}
-function tutupBakul(){ document.getElementById('popupBakul').classList.remove('show'); }
-function ubahKuantiti(nama,ubah){
-  bakul=bakul.map(item=>item.nama===nama?{...item,kuantiti:item.kuantiti+ubah}:item).filter(item=>item.kuantiti>0);
-  document.getElementById('jumlahBakul').innerText=bakul.length;
-  tunjukBakul();
-}
-function hantarWhatsApp(){
-  if(bakul.length===0){ alert("Bakul kosong!"); return;}
-  let mesej="Assalamualaikum, saya nak pesan:%0A";
-  let kira={};
-  bakul.forEach(item=>{ if(!kira[item.nama]) kira[item.nama]=Object.assign({},item); else kira[item.nama].kuantiti++; });
-  let total=0;
-  for(let nama in kira){
-    const item=kira[nama];
-    total+=item.harga*item.kuantiti;
-    mesej+=`- ${item.nama} x${item.kuantiti}%0A`;
-  }
-  mesej+=`Jumlah: RM${total.toFixed(2)}`;
-  window.open(`https://wa.me/60149236577?text=${mesej}`,"_blank");
-  bakul=[];
-  document.getElementById('jumlahBakul').innerText=0;
-  tutupBakul();
-}
-</script>
-</body>
-</html>
+      <img src="
