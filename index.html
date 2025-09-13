@@ -10,10 +10,8 @@
 
 <style>
 :root {
-  --biru-muda: #cce6ff;
-  --biru-navy: #003366;
   --putih: #ffffff;
-  --merah-muda: #ffcccc;
+  --biru-navy: #003366;
   --oren: #ff7f50;
 }
 
@@ -22,8 +20,8 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin:0; padding:0;
-  background: linear-gradient(to bottom, var(--biru-muda), var(--biru-navy));
-  color:#333; overflow-x:hidden;
+  background: linear-gradient(to bottom, #99ccff, #003366); /* gradient lebih tegas */
+  color:#fff; overflow-x:hidden;
 }
 
 /* NAVBAR */
@@ -52,24 +50,31 @@ section {
   margin:30px auto;
   max-width:1000px;
   border-radius:15px;
-  background:rgba(255,255,255,0.1);
-  backdrop-filter:blur(10px);
+  background: rgba(0,0,0,0.2); /* background tegas */
   color:#fff;
-  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  box-shadow:0 6px 20px rgba(0,0,0,0.3);
 }
 h2 { text-align:center; font-size:2em; margin-bottom:30px; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
 
-/* CARDS */
+/* CARDS PRODUK */
 .products, .testimoni, .proses-gambar {
   display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
 }
 .card {
-  background: var(--merah-muda); padding:15px; border-radius:15px;
-  text-align:center; position:relative; box-shadow:0 8px 20px rgba(0,0,0,0.3);
-  width:220px; transition: transform 0.3s;
+  background: #003366; /* biru gelap */
+  padding:15px;
+  border-radius:15px;
+  text-align:center;
+  position:relative;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  width:220px;
+  transition: transform 0.3s;
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.4);}
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.5);}
 .card img { width:100%; border-radius:15px; margin-bottom:10px; }
+.card p, .card button { color:#fff; }
+.card button { background: #0059b3; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; transition:0.3s;}
+.card button:hover { background:#ff7f50; }
 
 /* VIDEO */
 video { width:100%; height:auto; border-radius:15px; }
@@ -191,7 +196,7 @@ footer { text-align:center; padding:20px; background: rgba(0,0,0,0.3); color:#ff
   <h2>Hubungi Kami & Pesan</h2>
   <p>Email: <a href="mailto:mickeymikapple@gmail.com">mickeymikapple@gmail.com</a></p>
   <p>WhatsApp: <a href="https://wa.me/60149236577" target="_blank">Mik</a></p>
-  <p>WhatsApp: <a href="https://wa.me/60166234337" target="_blank">Fazrinah</a></p>
+  <p>WhatsApp: <a href="https://wa.me/60166234337" target="_blank">Fazrinah<p>WhatsApp: <a href="https://wa.me/60166234337" target="_blank">Fazrinah</a></p>
 </section>
 
 <!-- POPUP BAKUL -->
@@ -199,10 +204,11 @@ footer { text-align:center; padding:20px; background: rgba(0,0,0,0.3); color:#ff
   <h3>Bakul Anda</h3>
   <ul id="senaraiBakul"></ul>
   <p id="jumlah">Jumlah: RM0.00</p>
-  <button onclick="hantarWhatsApp()">Hantar ke WhatsApp</button>
+  <button onclick="checkoutBakul()">Checkout (WhatsApp)</button>
   <button onclick="tutupBakul()">Tutup</button>
 </div>
 
+<!-- FOOTER -->
 <footer>
   &copy; 2025 M&F_Bakery. Semua hak cipta terpelihara.
 </footer>
@@ -210,42 +216,48 @@ footer { text-align:center; padding:20px; background: rgba(0,0,0,0.3); color:#ff
 <!-- SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init({duration:800,once:true});
+AOS.init({ duration:800, once:true });
 
 let bakul = [];
 
-function tambahBakul(nama, harga) {
-  bakul.push({nama,harga});
+function tambahBakul(nama, harga){
+  bakul.push({nama, harga});
   document.getElementById('jumlahBakul').innerText = bakul.length;
   alert(nama + " telah ditambah ke bakul!");
 }
 
-function tunjukBakul() {
-  const list = document.getElementById('senaraiBakul');
-  list.innerHTML = '';
+function tunjukBakul(){
+  const senarai = document.getElementById('senaraiBakul');
+  senarai.innerHTML = '';
   let total = 0;
   bakul.forEach(item => {
     const li = document.createElement('li');
     li.innerText = item.nama + " - RM" + item.harga.toFixed(2);
-    list.appendChild(li);
+    senarai.appendChild(li);
     total += item.harga;
   });
   document.getElementById('jumlah').innerText = 'Jumlah: RM' + total.toFixed(2);
   document.getElementById('popupBakul').style.display = 'block';
 }
 
-function tutupBakul() { document.getElementById('popupBakul').style.display = 'none'; }
+function tutupBakul(){
+  document.getElementById('popupBakul').style.display = 'none';
+}
 
-function hantarWhatsApp() {
-  let teks = "Assalamualaikum, saya ingin pesan:\n";
+function checkoutBakul(){
+  if(bakul.length === 0){
+    alert("Bakul kosong!");
+    return;
+  }
+  let text = "Assalamualaikum, saya nak pesan:\n";
   let total = 0;
   bakul.forEach(item => {
-    teks += "- " + item.nama + " RM" + item.harga.toFixed(2) + "\n";
+    text += "- " + item.nama + " RM" + item.harga.toFixed(2) + "\n";
     total += item.harga;
   });
-  teks += "Jumlah: RM" + total.toFixed(2);
-  let url = "https://wa.me/60149236577?text=" + encodeURIComponent(teks);
-  window.open(url,"_blank");
+  text += "Jumlah: RM" + total.toFixed(2);
+  const waURL = "https://wa.me/60149236577?text=" + encodeURIComponent(text);
+  window.open(waURL, "_blank");
 }
 </script>
 
