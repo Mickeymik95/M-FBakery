@@ -207,6 +207,25 @@ footer {
   }
 }
 
+/* CSS tambahan untuk selesaikan scroll navbar pada telefon */
+@media (max-width:480px) {
+  nav {
+    flex-wrap: wrap;      /* pastikan baris baru jika penuh */
+    justify-content: center; /* tengahkan semua link & ikon */
+    padding: 8px;         /* kecilkan padding navbar */
+    gap: 5px;             /* kecilkan jarak antara link */
+  }
+  nav a {
+    padding: 5px 8px;     /* kecilkan padding link */
+    font-size: 0.8em;     /* kecilkan saiz font lagi */
+  }
+  #ikonBakul {
+    padding: 5px 8px;     /* kecilkan saiz bakul */
+    font-size: 0.95em;
+    margin-left: 0;       /* buang margin auto */
+  }
+}
+
 </style>
 </head>
 <body>
