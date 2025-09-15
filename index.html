@@ -13,6 +13,8 @@
   --biru-navy: #003366;
   --hitam: #000000;
   --oren: #ff7f50;
+  --gradient-start: #99ccff;
+  --gradient-end: #003366;
 }
 
 /* BODY & GRADIENT */
@@ -24,83 +26,140 @@ body {
   color:#003366; overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* NAVBAR ANIMATED PREMIUM */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 nav {
-  display:flex; justify-content:center; align-items:center; flex-wrap:wrap;
-  position:sticky; top:0; z-index:100;
-  background: rgba(255,255,255,0.9); 
-  padding:12px; gap:15px; box-shadow:0 2px 10px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 20px;
+  gap: 15px;
+  background: linear-gradient(270deg, var(--gradient-start), var(--gradient-end));
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border-bottom: 2px solid var(--hitam);
 }
+
 nav a {
-  color:var(--biru-navy); text-decoration:none; font-weight:bold;
-  padding:8px 12px; border-radius:8px; transition: all 0.3s ease;
+  color: var(--putih);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 22px;
+  border-radius: 90%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-nav a:hover { background: var(--biru-muda); color: var(--putih); transform:scale(1.1);}
-#ikonBakul { cursor:pointer; font-size:1.2em; margin-left:auto; }
+
+nav a:hover {
+  background: rgba(255,255,255,0.5);
+  color: var(--oren);
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  text-shadow: 0 0 8px #fff;
+}
+
+#ikonBakul {
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-left: auto;
+  padding: 12px 20px;
+  border-radius: 90%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+}
+
+#ikonBakul:hover {
+  background: rgba(255,255,255,0.5);
+  color: var(--oren);
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  text-shadow: 0 0 8px #fff;
+}
 
 /* HEADER */
-header { text-align:center; padding:40px 20px; color:var(--biru-navy); }
-header img { width:20%; max-width:140px; border-radius:50%; border:4px solid var(--biru-navy); box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-header h1 { font-size:2.5em; margin-top:10px; }
+header { text-align:center; padding:50px 20px; color:var(--biru-navy); }
+header img { width:20%; max-width:140px; border-radius:50%; border:4px solid var(--biru-navy); box-shadow:0 6px 15px rgba(0,0,0,0.3);}
+header h1 { font-size:2.5em; margin-top:15px; }
 
 /* SECTION */
 section {
   padding:50px 20px;
   margin:30px auto;
   max-width:1000px;
-  border-radius:15px;
+  border-radius:20px;
   background: var(--putih);
   color:var(--biru-navy);
-  box-shadow:0 6px 20px rgba(0,0,0,0.2);
-  border:2px solid var(--hitam); /* frame hitam untuk setiap section */
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  border:2px solid var(--hitam);
 }
-h2 { text-align:center; font-size:2em; margin-bottom:30px; }
+h2 { text-align:center; font-size:2.2em; margin-bottom:30px; }
 
-/* CARDS PRODUK */
+/* CARDS PRODUK / TESTIMONI / PROSES */
 .products, .testimoni, .proses-gambar {
-  display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+  display:flex; flex-wrap:wrap; gap:25px; justify-content:center;
 }
 .card {
-  background: var(--biru-muda); /* biru muda */
+  background: linear-gradient(145deg, var(--putih), var(--biru-muda));
   padding:15px;
-  border-radius:15px;
+  border-radius:20px;
   text-align:center;
   position:relative;
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2), -5px -5px 20px rgba(255,255,255,0.3);
   width:220px;
-  transition: transform 0.3s;
+  transition: transform 0.4s, box-shadow 0.4s;
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.3);}
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 8px 8px 25px rgba(0,0,0,0.35), -8px -8px 25px rgba(255,255,255,0.3);
+}
 .card img { width:100%; border-radius:15px; margin-bottom:10px; }
-.card p { color: var(--biru-navy); font-weight:bold; }
-.card button { background: var(--biru-navy); color:var(--putih); border:none; padding:8px 12px; border-radius:5px; cursor:pointer; transition:0.3s;}
-.card button:hover { background: var(--oren); }
+.card p { color: var(--biru-navy); font-weight:bold; font-size:1.05em; }
+.card button { background: var(--biru-navy); color:var(--putih); border:none; padding:10px 15px; border-radius:12px; cursor:pointer; font-weight:bold; transition:0.3s;}
+.card button:hover { background: var(--oren); transform:scale(1.05); }
 
 /* VIDEO */
-video { width:100%; height:auto; border-radius:15px; }
+video { width:100%; height:auto; border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.25); }
 
 /* POPUP BAKUL */
 #popupBakul {
   display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
-  background:#fff; color:#000; border-radius:10px; padding:20px; width:90%; max-width:400px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:999;
+  background: linear-gradient(145deg, var(--putih), var(--biru-muda));
+  color:#000; border-radius:20px; padding:25px; width:90%; max-width:450px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.35); z-index:999;
 }
 #senaraiBakul { list-style:none; padding:0; max-height:250px; overflow-y:auto; margin-bottom:10px; }
-#popupBakul button { margin-top:10px; background: var(--biru-navy); color:#fff; border:none; padding:10px; border-radius:5px; cursor:pointer; transition:0.3s;}
-#popupBakul button:hover { background: var(--oren); }
+#popupBakul button { margin-top:10px; background: var(--biru-navy); color:#fff; border:none; padding:12px; border-radius:12px; cursor:pointer; font-weight:bold; transition:0.3s;}
+#popupBakul button:hover { background: var(--oren); transform:scale(1.05); }
 
 /* FORM */
-textarea, button { width:100%; padding:10px; margin:5px 0; border-radius:8px; border:1px solid #ccc; font-size:1em; }
+textarea, button { width:100%; padding:12px; margin:8px 0; border-radius:12px; border:1px solid #ccc; font-size:1em; }
 textarea { resize: vertical; min-height:80px; }
 button:hover { background:#001f4d; color:#fff; }
 
 /* FOOTER */
-footer { text-align:center; padding:20px; background: var(--biru-navy); color:#fff; margin-top:30px; border-radius:15px; }
+footer { text-align:center; padding:25px; background: linear-gradient(135deg, var(--biru-muda), var(--biru-navy)); color:#fff; margin-top:30px; border-radius:20px; font-weight:bold; box-shadow:0 -5px 20px rgba(0,0,0,0.2); }
 
 /* MEDIA QUERY */
 @media (max-width:768px) {
   nav { flex-wrap:wrap; justify-content:center;}
-  nav a { margin:5px; font-size:0.9em;}
+  nav a { margin:5px; font-size:0.95em;}
   #ikonBakul { margin-top:10px; position:static;}
   header img { width:40%;}
   header h1 { font-size:1.8em;}
@@ -191,7 +250,7 @@ footer { text-align:center; padding:20px; background: var(--biru-navy); color:#f
 <!-- POPUP BAKUL -->
 <div id="popupBakul">
   <h3>Bakul Anda</h3>
-  <ul id="senaraiBakul</ul>
+  <ul id="senaraiBakul"></ul>
   <p id="jumlah">Jumlah: RM0.00</p>
   <button onclick="checkoutBakul()">Checkout (WhatsApp)</button>
   <button onclick="tutupBakul()">Tutup</button>
