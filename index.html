@@ -13,180 +13,178 @@
   --biru-navy: #003366;
   --hitam: #000000;
   --oren: #ff7f50;
-  --gradient-start: #99ccff;
-  --gradient-end: #003366;
 }
 
 /* BODY & GRADIENT */
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin:0; 
+  margin:0;
   padding-top: 80px; /* selaraskan dengan tinggi navbar */
   background: linear-gradient(to bottom, var(--putih), var(--biru-muda));
-  color:#003366; 
+  color:#003366;
   overflow-x:hidden;
 }
 
-/* NAVBAR ANIMATED PREMIUM */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* NAVBAR FIXED & BACKGROUND IMAGE */
+/* NAVBAR */
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  position: fixed; /* sentiasa di atas */
+  position: fixed;
   top: 0;
-  width: 100%; /* penuh lebar */
+  width: 100%;
   z-index: 100;
   padding: 12px 20px;
-  gap: 15px;
-
-  background-image: url('bgnav.jpg'); /* ganti gambar anda */
+  gap: 10px;
+  background-image: url('bgnav.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  border-bottom: 2px solid var(--hitam);
 }
 
-/* overlay gelap */
 nav::before {
   content: "";
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5); /* lebih gelap supaya teks jelas */
+  background: rgba(0,0,0,0.5);
   z-index: -1;
 }
 
-/* Navbar links */
 nav a {
   color: var(--putih);
   text-decoration: none;
   font-weight: bold;
-  padding: 12px 22px;
-  border-radius: 45px;
-  background: rgba(255,255,255,0.3); /* lebih jelas */
+  padding: 8px 16px;
+  border-radius: 35px;
+  background: rgba(255,255,255,0.3);
   backdrop-filter: blur(4px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   z-index: 5;
 }
 
 nav a:hover {
   background: rgba(255,255,255,0.6);
   color: var(--oren);
-  transform: scale(1.15);
+  transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-  text-shadow: 0 0 8px #fff;
 }
 
-/* Icon bakul */
 #ikonBakul {
   cursor: pointer;
   font-size: 1.2em;
   margin-left: auto;
-  padding: 12px 20px;
-  border-radius:55px;
+  padding: 10px 18px;
+  border-radius:50px;
   background: #ff9900;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: all 0.4s ease;
   color: var(--putih);
-  position: relative;
+  transition: all 0.3s ease;
   z-index: 10;
 }
 
 #ikonBakul:hover {
   background: #ff7700;
-  transform: scale(1.15);
+  transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-  text-shadow: 0 0 8px #fff;
 }
 
-/* HEADER LOGO BULAT SESEKATA */
+/* HEADER LOGO CENTER */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
 header img {
-  width:140px;
-  height:140px; /* pastikan width = height */
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   border: 4px solid var(--biru-navy);
-  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+header h1 {
+  font-size: 2em;
+  margin-top: 15px;
 }
 
-/* SECTION */
+/* SECTION SHADOW */
 section {
-  padding:50px 20px;
-  margin:30px auto;
-  max-width:1000px;
-  border-radius:20px;
+  padding: 40px 20px;
+  margin: 30px auto;
+  max-width: 1000px;
+  border-radius: 20px;
   background: var(--putih);
-  color:var(--biru-navy);
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
-  border:2px solid var(--hitam);
+  color: var(--biru-navy);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
-h2 { text-align:center; font-size:2.2em; margin-bottom:30px; }
 
-/* CARDS PRODUK / TESTIMONI / PROSES */
+/* SECTION HEADINGS */
+h2 { text-align: center; font-size:2.2em; margin-bottom:30px; }
+
+/* CARDS */
 .products, .testimoni, .proses-gambar {
   display:flex; flex-wrap:wrap; gap:25px; justify-content:center;
 }
 .card {
-  background: linear-gradient(145deg, var(--putih), var(--biru-muda));
+  background: var(--putih);
   padding:15px;
   border-radius:20px;
   text-align:center;
   position:relative;
-  box-shadow: 5px 5px 20px rgba(0,0,0,0.2), -5px -5px 20px rgba(255,255,255,0.3);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
   width:220px;
   transition: transform 0.4s, box-shadow 0.4s;
 }
 .card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 8px 8px 25px rgba(0,0,0,0.35), -8px -8px 25px rgba(255,255,255,0.3);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow:0 12px 25px rgba(0,0,0,0.35);
 }
 .card img { width:100%; border-radius:15px; margin-bottom:10px; }
 .card p { color: var(--biru-navy); font-weight:bold; font-size:1.05em; }
-.card button { background: var(--biru-navy); color:var(--putih); border:none; padding:10px 15px; border-radius:12px; cursor:pointer; font-weight:bold; transition:0.3s;}
-.card button:hover { background: var(--oren); transform:scale(1.05); }
+.card button { background: var(--biru-navy); color: var(--putih); border:none; padding:10px 15px; border-radius:12px; cursor:pointer; font-weight:bold; transition:0.3s;}
+.card button:hover { background: var(--oren); transform: scale(1.05); }
 
 /* VIDEO */
-video { width:100%; height:auto; border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.25); }
+video { width:100%; height:auto; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.25); }
 
 /* POPUP BAKUL */
 #popupBakul {
   display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
-  background: linear-gradient(145deg, var(--putih), var(--biru-muda));
-  color:#000; border-radius:20px; padding:25px; width:90%; max-width:450px;
-  box-shadow:0 15px 35px rgba(0,0,0,0.35); z-index:999;
+  background: var(--putih);
+  color:#000;
+  border-radius:20px;
+  padding:25px;
+  width:90%; max-width:450px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.35);
+  z-index:999;
 }
 #senaraiBakul { list-style:none; padding:0; max-height:250px; overflow-y:auto; margin-bottom:10px; }
 #popupBakul button { margin-top:10px; background: var(--biru-navy); color:#fff; border:none; padding:12px; border-radius:12px; cursor:pointer; font-weight:bold; transition:0.3s;}
 #popupBakul button:hover { background: var(--oren); transform:scale(1.05); }
 
-/* FORM */
-textarea, button { width:100%; padding:12px; margin:8px 0; border-radius:12px; border:1px solid #ccc; font-size:1em; }
-textarea { resize: vertical; min-height:80px; }
-button:hover { background:#001f4d; color:#fff; }
-
 /* FOOTER */
-footer { text-align:center; padding:25px; background: linear-gradient(135deg, var(--biru-muda), var(--biru-navy)); color:#fff; margin-top:30px; border-radius:20px; font-weight:bold; box-shadow:0 -5px 20px rgba(0,0,0,0.2); }
+footer {
+  text-align:center;
+  padding:25px;
+  background: linear-gradient(135deg, var(--biru-muda), var(--biru-navy));
+  color:#fff;
+  margin-top:30px;
+  border-radius:20px;
+  font-weight:bold;
+  box-shadow:0 -5px 20px rgba(0,0,0,0.2);
+}
 
 /* MEDIA QUERY */
 @media (max-width:768px) {
   nav { flex-wrap:wrap; justify-content:center;}
   nav a { margin:5px; font-size:0.95em;}
   #ikonBakul { margin-top:10px; position:static;}
-  header img { width:40%;}
+  header img { width:40%; height:auto;}
   header h1 { font-size:1.8em;}
   .products, .testimoni, .proses-gambar { flex-direction:column; align-items:center;}
   .card { width:90%; max-width:300px;}
@@ -206,26 +204,26 @@ footer { text-align:center; padding:25px; background: linear-gradient(135deg, va
 </nav>
 
 <!-- HEADER -->
-<header>
-  <img src="IMG20250812163803.jpg" alt="Logo M&F_Bakery">
-  <h1>M&F_Bakery</h1>
+<header data-aos="fade-down">
+  <img src="IMG20250812163803.jpg" alt="Logo M&F_Bakery" data-aos="zoom-in">
+  <h1 data-aos="fade-up">M&F_Bakery</h1>
 </header>
 
 <!-- PRODUK -->
-<section id="produk">
+<section id="produk" data-aos="fade-up">
   <h2>Senarai Produk</h2>
   <div class="products">
-    <div class="card">
+    <div class="card" data-aos="fade-right">
       <img src="kuih1.jpeg" alt="Kuih Lapis">
       <p>Kuih Lapis - RM2.50</p>
       <button onclick="tambahBakul('Kuih Lapis',2.5)">Tambah ke Bakul</button>
     </div>
-    <div class="card">
+    <div class="card" data-aos="fade-left">
       <img src="kuih2.jpg" alt="Kuih Seri Muka">
       <p>Kuih Seri Muka - RM3.00</p>
       <button onclick="tambahBakul('Kuih Seri Muka',3)">Tambah ke Bakul</button>
     </div>
-    <div class="card">
+    <div class="card" data-aos="fade-right">
       <img src="kuih3.jpeg" alt="Kuih Kek Karamel">
       <p>Kek Karamel - RM4.50</p>
       <button onclick="tambahBakul('Kuih Kek Karamel',4.5)">Tambah ke Bakul</button>
@@ -234,38 +232,44 @@ footer { text-align:center; padding:25px; background: linear-gradient(135deg, va
 </section>
 
 <!-- PROSES -->
-<section id="proses">
+<section id="proses" data-aos="fade-up">
   <h2>Proses Pembuatan</h2>
-  <video controls>
+  <video controls data-aos="zoom-in">
     <source src="lv_0_20250913164116.mp4" type="video/mp4">
     Browser anda tidak menyokong video.
   </video>
   <div class="proses-gambar">
-    <div class="card"><img src="proses1.jpg" alt="Proses 1"></div>
-    <div class="card"><img src="proses2.jpg" alt="Proses 2"></div>
+    <div class="card" data-aos="fade-right"><img src="proses1.jpg" alt="Proses 1"></div>
+    <div class="card" data-aos="fade-left"><img src="proses2.jpg" alt="Proses 2"></div>
   </div>
 </section>
 
 <!-- TESTIMONI -->
-<section id="testimoni">
+<section id="testimoni" data-aos="fade-up">
   <h2>Testimoni Pelanggan</h2>
   <div class="testimoni">
-    <div class="card"><img src="pelanggan1.jpg" alt="Pelanggan 1"><p>"Kuihnya sangat sedap!" - Aisyah</p></div>
-    <div class="card"><img src="pelanggan2.jpg" alt="Pelanggan 2"><p>"Servis cepat dan mesra." - Amir</p></div>
+    <div class="card" data-aos="fade-right">
+      <img src="pelanggan1.jpg" alt="Pelanggan 1">
+      <p>"Kuihnya sangat sedap!" - Aisyah</p>
+    </div>
+    <div class="card" data-aos="fade-left">
+      <img src="pelanggan2.jpg" alt="Pelanggan 2">
+      <p>"Servis cepat dan mesra." - Amir</p>
+    </div>
   </div>
 </section>
 
 <!-- MAKLUMBALAS -->
-<section id="maklum-balas">
+<section id="maklum-balas" data-aos="fade-up">
   <h2>Maklum Balas Pelanggan</h2>
-  <div class="feedback card">
+  <div class="feedback card" data-aos="zoom-in">
     <textarea placeholder="Tulis maklum balas anda..." required></textarea>
     <button onclick="alert('Terima kasih atas maklum balas anda!')">Hantar</button>
   </div>
 </section>
 
 <!-- HUBUNGI -->
-<section id="hubungi">
+<section id="hubungi" data-aos="fade-up">
   <h2>Hubungi Kami</h2>
   <p>Email: <a href="mailto:mickeymikapple@gmail.com">mickeymikapple@gmail.com</a></p>
   <p>WhatsApp: <a href="https://wa.me/60149236577" target="_blank">Mik</a></p>
@@ -282,29 +286,28 @@ footer { text-align:center; padding:25px; background: linear-gradient(135deg, va
 </div>
 
 <!-- FOOTER -->
-<footer>
+<footer data-aos="fade-up">
   &copy; 2025 M&F_Bakery. Semua hak cipta terpelihara.
 </footer>
 
 <!-- SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init({ duration:800, once:true });
+AOS.init({ duration:800, once:true, easing:'ease-in-out' });
 
 let bakul = [];
-
 function tambahBakul(nama, harga){
   bakul.push({nama, harga});
   document.getElementById('jumlahBakul').innerText = bakul.length;
   alert(nama + " telah ditambah ke bakul!");
 }
-
 function tunjukBakul(){
   const senarai = document.getElementById('senaraiBakul');
   senarai.innerHTML = '';
   let total = 0;
   bakul.forEach(item => {
-    const li = document.createElement('li');
+    const li = document.create
+Element('li');
     li.innerText = item.nama + " - RM" + item.harga.toFixed(2);
     senarai.appendChild(li);
     total += item.harga;
@@ -329,6 +332,7 @@ function checkoutBakul(){
     total += item.harga;
   });
   text += "Jumlah: RM" + total.toFixed(2);
+  // Gantikan nombor WhatsApp dengan nombor pemilik kedai
   const waURL = "https://wa.me/60149236577?text=" + encodeURIComponent(text);
   window.open(waURL, "_blank");
 }
