@@ -306,8 +306,7 @@ function tunjukBakul(){
   senarai.innerHTML = '';
   let total = 0;
   bakul.forEach(item => {
-    const li = document.create
-Element('li');
+    const li = document.createElement('li');
     li.innerText = item.nama + " - RM" + item.harga.toFixed(2);
     senarai.appendChild(li);
     total += item.harga;
